@@ -13,11 +13,14 @@ df['experience'] = df['experience'].replace(np.nan,0)# /Replacing nan's with zer
 
 
 
-x = df[['experience','test_score(out of 10)','interview_score(out of 10)']]
+x = df[['experience','test_score','interview_score']]
 y = df['salary']
 
 print(df)
 
-print(pd.get_dummies(df))
+dummies = pd.get_dummies(df)
+print(dummies)
 
+df = pd.concat([df,dummies],axis=1)
+df
 #incomplete
